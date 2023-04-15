@@ -3,10 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user ,dispatch} = useContext(AuthContext);
   let nav = useNavigate()
   const toLogin = () => {
     nav(`../login`)
+  }
+  const logOut =()=>{
+    dispatch({type:"LOGOUT"})
+    window.localStorage.clear()
+    nav(`../`)
   }
   return (
     <div className="navbar">
@@ -15,7 +20,7 @@ const Navbar = () => {
           <span className="logo">lamabooking</span>
         </Link>
         {user ? <div>{user.username}
-            <button className="navButton">sign out</button>
+            <button className="navButton" onClick={logOut}>sign out</button>
         </div> : (
           <div className="navItems">
             <button className="navButton">Register</button>
