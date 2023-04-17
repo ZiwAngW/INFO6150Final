@@ -4,20 +4,42 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import useFetch from "../../hooks/useFetch";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Widget = ({ type }) => {
-  let data;
+  let data_w;
+  const { data: hotelData, loading, error } = useFetch("/hotels");
+  const { data: userData } = useFetch("/users"); // Add this line to fetch user data
+  const [numHotel, setNumHotel] = useState(0);
+  const [numUser, setNumUser] = useState(0);
 
+  useEffect(() => {
+    if (hotelData) {
+      setNumHotel(hotelData.length);
+    }
+  }, [hotelData]);
+
+  
+  useEffect(() => {
+    if (userData) {
+      setNumUser(userData.length);
+    }
+  }, [userData]);
   //temporary
   const amount = 100;
   const diff = 20;
 
   switch (type) {
     case "user":
-      data = {
+      data_w = {
         title: "USERS",
         isMoney: false,
         link: "See all users",
+        value: numUser,
+        route:"/users",
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -30,10 +52,13 @@ const Widget = ({ type }) => {
       };
       break;
     case "order":
-      data = {
-        title: "ORDERS",
+      data_w = {
+        title: "HOTELS",
         isMoney: false,
-        link: "View all orders",
+        route:"/hotels",
+
+        value: numHotel,
+        link: "View alL hotels",
         icon: (
           <ShoppingCartOutlinedIcon
             className="icon"
@@ -46,9 +71,12 @@ const Widget = ({ type }) => {
       };
       break;
     case "earning":
-      data = {
+      data_w = {
         title: "EARNINGS",
         isMoney: true,
+        route:"/hotels",
+
+        value: amount,
         link: "View net earnings",
         icon: (
           <MonetizationOnOutlinedIcon
@@ -59,9 +87,12 @@ const Widget = ({ type }) => {
       };
       break;
     case "balance":
-      data = {
+      data_w = {
         title: "BALANCE",
         isMoney: true,
+        route:"/hotels",
+
+        value: amount,
         link: "See details",
         icon: (
           <AccountBalanceWalletOutlinedIcon
@@ -81,18 +112,21 @@ const Widget = ({ type }) => {
   return (
     <div className="widget">
       <div className="left">
-        <span className="title">{data.title}</span>
-        <span className="counter">
-          {data.isMoney && "$"} {amount}
+        <span className="title">{data_w.title}</span>
+        <span className="amount">
+        {data_w.isMoney ? "$" : ""} {data_w.value}
         </span>
-        <span className="link">{data.link}</span>
+        <Link to={data_w.route} style={{ textDecoration: "none" }} >
+        <span className="link" >{data_w.link}</span>
+          </Link>
+        
       </div>
       <div className="right">
         <div className="percentage positive">
           <KeyboardArrowUpIcon />
           {diff} %
         </div>
-        {data.icon}
+        {data_w.icon}
       </div>
     </div>
   );

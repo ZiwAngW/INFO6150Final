@@ -2,7 +2,7 @@ import "./newRoom.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { roomInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
@@ -14,6 +14,18 @@ const NewRoom = () => {
 
   const { data, loading, error } = useFetch("/hotels");
 
+  useEffect(() => {
+
+    if (data) {
+      console.log("THIS THING IS DATA: ", data[0])
+      const numKeys = data.length;
+
+      console.log("THIS IS LENGTH",numKeys); 
+
+    }
+  }, [data]);
+
+
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
@@ -22,13 +34,14 @@ const NewRoom = () => {
     e.preventDefault();
     const roomNumbers = rooms.split(",").map((room) => ({ number: room }));
     try {
+      
+  console.log("THIS THING IS NFO: ", info)
       await axios.post(`/rooms/${hotelId}`, { ...info, roomNumbers });
     } catch (err) {
       console.log(err);
     }
   };
 
-  console.log(info)
   return (
     <div className="new">
       <Sidebar />
