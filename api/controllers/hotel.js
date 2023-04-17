@@ -51,6 +51,15 @@ export const getHotels = async (req, res, next) => {
     next(err);
   }
 };
+export const getHotelsByType = async (req, res, next) => {
+  try {
+    const hotels = await Hotel.find({ type: req.params.type });
+    res.status(200).json(hotels);
+  } catch (err) {
+    next(err);
+  }
+};
+
 export const countByCity = async (req, res, next) => {
   const cities = req.query.cities.split(",");
   try {
