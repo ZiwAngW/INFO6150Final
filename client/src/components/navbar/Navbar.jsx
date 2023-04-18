@@ -8,6 +8,9 @@ const Navbar = () => {
   const toLogin = () => {
     nav(`../login`)
   }
+  const toRegister = ()=>{
+    nav(`../register`)
+  }
   const logOut =()=>{
     dispatch({type:"LOGOUT"})
     window.localStorage.clear()
@@ -23,7 +26,7 @@ const Navbar = () => {
             <button className="navButton" onClick={logOut}>sign out</button>
         </div> : (
           <div className="navItems">
-            <button className="navButton">Register</button>
+            <button className="navButton" onClick={toRegister}>Register</button>
             <button className="navButton" onClick={toLogin}>Login</button>
           </div>
         )}
