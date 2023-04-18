@@ -11,6 +11,7 @@ import useFetch from "../../hooks/useFetch";
 const Category = () => {
     
     const location = useLocation();
+    
     const { data, loading,error} = useFetch(
         `/hotels/type/${location.state.destination}`
     );
