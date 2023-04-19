@@ -1,32 +1,44 @@
-.login {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Container styles */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
 }
 
-.lContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* Form styles */
+form {
+  margin-bottom: 2rem;
 }
 
-.lInput{
-  height: 30px;
-  padding: 10px;
-}
-
-.lButton {
-  border: none;
-  padding: 10px 20px;
-  background-color: #0071c2;
-  color: white;
+form label {
   font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
+  margin-bottom: 0.5rem;
 }
 
-.lButton:disabled{
-  background-color: #0071c28c;
-  cursor: not-allowed;
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Button styles */
+.container button {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.container button:hover,
+.container button:focus {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  color: #fff;
 }
