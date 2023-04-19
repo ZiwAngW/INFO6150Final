@@ -140,7 +140,7 @@ const Hotel = () => {
                   nights)
                 </h2>
                 <button onClick={handleClick}>Reserve or Book Now!</button>
-              </div>):(<div className="hotelDetailsPrice"> no data</div>)
+              </div>):(<div className="hotelDetailsPrice"> Use Search to know more !</div>)
               }
               
             </div>
