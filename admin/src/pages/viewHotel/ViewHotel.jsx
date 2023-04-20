@@ -15,8 +15,9 @@ const ViewHotel = () => {
   const [rooms, setRooms] = useState([]);
   const path = location.pathname.split("/")[2];
   const { data, loading, error } = useFetch("/rooms");
-  const { data: userData } = useFetch("/hotels");
-  console.log(path)
+  const { data: userData } = useFetch(`/hotels/find/${path}`);
+
+  console.log("Bhai ye hai userData: ", userData);
 
   // useEffect(() => {
 
@@ -31,7 +32,7 @@ const ViewHotel = () => {
     );
     setRooms(value);
   };
-  
+
   console.log(files)
 
   const handleClick = async (e) => {
@@ -45,7 +46,7 @@ const ViewHotel = () => {
           const uploadRes = await axios.post(
             "https://api.cloudinary.com/v1_1/dui5pbcjj/image/upload",
             data,
-            {withCredentials: false}
+            { withCredentials: false }
           );
 
           const { url } = uploadRes.data;
@@ -60,7 +61,7 @@ const ViewHotel = () => {
       };
 
       await axios.post("/hotels", newhotel);
-    } catch (err) {console.log(err)}
+    } catch (err) { console.log(err) }
   };
   return (
     <div className="new">
@@ -97,16 +98,37 @@ const ViewHotel = () => {
               </div>
 
               {hotelInputs.map((input) => (
-                <div className="formInput" key={input.id}>
-                  <label>{input.label}</label>
-                  <input
-                    id={input.id}
-                    onChange={handleChange}
-                    type={input.type}
-                    placeholder={input.placeholder}
-                  />
-                </div>
-              ))}
+  <div className="formInput" key={input.id}>
+    <label>{input.label}</label>
+    <input
+      id={input.id}
+      onChange={handleChange}
+      type={input.type}
+      placeholder={
+        input.id === 'name'
+          ? userData['name']
+          : input.id === 'address'
+          ? userData['address']
+          : input.id === 'city'
+          ? userData['city']
+          : input.id === 'title'
+          ? userData['title']
+          : input.id === 'distance'
+          ? userData['distance']
+          : input.id === 'title'
+          ? userData['title']
+          : input.id === 'cheapestPrice'
+          ? userData['cheapestPrice']
+          : input.id === 'desc'
+          ? userData['description']
+          : input.placeholder
+      }
+    />
+  </div>
+))}
+
+
+
               <div className="formInput">
                 <label>Featured</label>
                 <select id="featured" onChange={handleChange}>
@@ -120,11 +142,11 @@ const ViewHotel = () => {
                   {loading
                     ? "loading"
                     : data &&
-                      data.map((room) => (
-                        <option key={room._id} value={room._id}>
-                          {room.title}
-                        </option>
-                      ))}
+                    data.map((room) => (
+                      <option key={room._id} value={room._id}>
+                        {room.title}
+                      </option>
+                    ))}
                 </select>
               </div>
               <button onClick={handleClick}>Send</button>
