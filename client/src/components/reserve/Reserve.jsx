@@ -57,6 +57,7 @@ const Reserve = ({ setOpen, hotelId }) => {
         selectedRooms.map((roomId) => {
           const res = axios.put(`/rooms/availability/${roomId}`, {
             dates: alldates,
+            hotels: hotelId,
           });
           return res.data;
         })
