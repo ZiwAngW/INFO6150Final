@@ -7,6 +7,7 @@ import {
   updateRoom,
   updateRoomAvailability,
 } from "../controllers/room.js";
+import { authenticateWithJwtCookie } from "../controllers/auth.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
 const router = express.Router();
@@ -14,7 +15,7 @@ const router = express.Router();
 router.post("/:hotelid", verifyAdmin, createRoom);
 
 //UPDATE
-router.put("/availability/:id", updateRoomAvailability);
+router.put("/availability/:id", authenticateWithJwtCookie, updateRoomAvailability);
 router.put("/:id", verifyAdmin, updateRoom);
 //DELETE
 router.delete("/:id/:hotelid", verifyAdmin, deleteRoom);

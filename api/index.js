@@ -40,7 +40,7 @@ mongoose.connection.on("disconnected", () => {
 //   next();
 // });
 app.use(cors({
-  origin: ['http://localhost:3001', 'http://localhost:3000'], // Update with the appropriate client URL
+  origin: ['http://localhost:3001', 'http://localhost:3000', 'http://localhost:3002', 'http://localhost:3003'], // Update with the appropriate client URL
   credentials: true // Enable credentials (cookies, authorization headers, etc.)
 }));
 
@@ -63,6 +63,7 @@ app.use((err, req, res, next) => {
     stack: err.stack,
   });
 });
+
 
 app.listen(8800, () => {
   connect();
