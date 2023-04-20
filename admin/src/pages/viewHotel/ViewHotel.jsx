@@ -17,7 +17,6 @@ const ViewHotel = () => {
   const { data, loading, error } = useFetch("/rooms");
   const { data: userData } = useFetch(`/hotels/find/${path}`);
 
-  console.log("Bhai ye hai userData: ", userData);
 
   // useEffect(() => {
 
