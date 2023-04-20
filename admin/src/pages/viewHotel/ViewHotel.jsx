@@ -60,7 +60,7 @@ const ViewHotel = () => {
         photos: list,
       };
 
-      await axios.post("/hotels", newhotel);
+      await axios.put(`/hotels/${path}`, newhotel);
     } catch (err) { console.log(err) }
   };
   return (
@@ -73,14 +73,20 @@ const ViewHotel = () => {
         </div>
         <div className="bottom">
           <div className="left">
-            <img
+            {/* <img
               src={
                 files
                   ? URL.createObjectURL(files[0])
                   : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
               }
               alt=""
-            />
+            /> */}
+            {userData && userData.photos && userData.photos.length > 0 ? (
+              <img src={userData.photos[0]} alt="" />
+            ) : (
+              <img src="https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg" alt="" />
+            )}
+
           </div>
           <div className="right">
             <form>
@@ -88,6 +94,7 @@ const ViewHotel = () => {
                 <label htmlFor="file">
                   Image: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
+
                 <input
                   type="file"
                   id="file"
@@ -95,50 +102,58 @@ const ViewHotel = () => {
                   onChange={(e) => setFiles(e.target.files)}
                   style={{ display: "none" }}
                 />
+                {/* <label for="file-upload" class="custom-file-upload">
+                {userData && userData.photos && (
+                  <img src={userData.photos[0]} alt="" />
+                )}
+                </label> */}
+
               </div>
 
               {hotelInputs.map((input) => (
-  <div className="formInput" key={input.id}>
-    <label>{input.label}</label>
-    <input
-      id={input.id}
-      onChange={handleChange}
-      type={input.type}
-      placeholder={
-        input.id === 'name'
-          ? userData['name']
-          : input.id === 'address'
-          ? userData['address']
-          : input.id === 'city'
-          ? userData['city']
-          : input.id === 'title'
-          ? userData['title']
-          : input.id === 'distance'
-          ? userData['distance']
-          : input.id === 'title'
-          ? userData['title']
-          : input.id === 'cheapestPrice'
-          ? userData['cheapestPrice']
-          : input.id === 'desc'
-          ? userData['description']
-          : input.placeholder
-      }
-    />
-  </div>
-))}
+                <div className="formInput" key={input.id}>
+                  <label>{input.label}</label>
+                  <input
+                    id={input.id}
+                    onChange={handleChange}
+                    type={input.type}
+                    placeholder={
+                      input.id === 'name'
+                        ? userData['name']
+                        : input.id === 'address'
+                          ? userData['address']
+                          : input.id === 'city'
+                            ? userData['city']
+                            : input.id === 'title'
+                              ? userData['title']
+                              : input.id === 'type'
+                                ? userData['type']
+                                : input.id === 'distance'
+                                  ? userData['distance']
+                                  : input.id === 'title'
+                                    ? userData['title']
+                                    : input.id === 'cheapestPrice'
+                                      ? userData['cheapestPrice']
+                                      : input.id === 'desc'
+                                        ? userData['description']
+                                        : input.placeholder
+                    }
+                  />
+                </div>
+              ))}
 
 
 
               <div className="formInput">
                 <label>Featured</label>
-                <select id="featured" onChange={handleChange}>
+                <select id="featured" onChange={handleChange} defaultValue={userData['featured']}>
                   <option value={false}>No</option>
                   <option value={true}>Yes</option>
                 </select>
               </div>
               <div className="selectRooms">
                 <label>Rooms</label>
-                <select id="rooms" multiple onChange={handleSelect}>
+                <select id="rooms" multiple onChange={handleSelect} value={userData.rooms}>
                   {loading
                     ? "loading"
                     : data &&
@@ -148,6 +163,7 @@ const ViewHotel = () => {
                       </option>
                     ))}
                 </select>
+
               </div>
               <button onClick={handleClick}>Send</button>
             </form>
