@@ -40,11 +40,12 @@ const Login = () => {
 
   return (
     <div className="login">
+      <div className="overlay"></div>
       <Card className="login-card">
-        <h2 className="text-center">Login</h2>
+        <h2 className="text-center mb-4">Login</h2>
         <Form>
           <Form.Group className="mb-3" controlId="username">
-            <Form.Label>Username</Form.Label>
+            <Form.Label>Username:</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter username"
@@ -54,7 +55,7 @@ const Login = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="password">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Password:</Form.Label>
             <Form.Control
               type="password"
               placeholder="Password"
