@@ -111,7 +111,7 @@ export const getHotelRooms = async (req, res, next) => {
 // get all the bookings from the Booking model
 export const getBookings = async (req, res, next) => {
   try {
-    dummy_response = {
+    let dummy_response = {
       "status": 200,
       "count": 3,
       "data": [
@@ -267,7 +267,7 @@ export const getBookings = async (req, res, next) => {
     //   count: bookings.length,
     //   data: bookings,
     // }
-    res.status(200).json(response);
+    res.status(200).json(dummy_response);
   } catch (err) {
     next(err);
   }
