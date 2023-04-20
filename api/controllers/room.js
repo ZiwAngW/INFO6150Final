@@ -61,11 +61,13 @@ export const updateRoomAvailability = async (req, res, next) => {
           },
         }
       );
+      const room = await Room.findOne({ "roomNumbers._id": req.params.id });
+      console.log(`room ${room}`);
 
       // Save new booking
       const newBooking = new Bookings({
         hotel: mongoose.Types.ObjectId(req.body.hotels),
-        room: mongoose.Types.ObjectId(Room._id),
+        room: mongoose.Types.ObjectId(room._id),
         user: mongoose.Types.ObjectId(req.user.id),
       });
       await newBooking.save();
