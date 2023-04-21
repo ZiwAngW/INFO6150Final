@@ -10,12 +10,31 @@
   width: 1024px;
   font-size: 20px;
 }
+
 .HomeOptions{
   display: flex;
-  gap:5px;
+  gap: 5px;
   justify-content: center;
   align-items: center;
 }
+
 .HomeIcon{
   height: 20px;
+}
+
+/* Media queries for responsive design */
+
+@media screen and (max-width: 768px) {
+  .homeTitle {
+    width: 90%;
+    font-size: 18px;
+  }
+
+  .HomeOptions {
+    flex-wrap: wrap;
+  }
+
+  .HomeIcon {
+    height: 15px;
+  }
 }

@@ -10,6 +10,25 @@
   align-items: center;
 }
 
+/* For smaller screens */
+@media (max-width: 600px) {
+  .container {
+    height: auto;
+    padding: 2rem;
+  }
+  
+  .card {
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .container .btn-primary,
+  .container .btn-secondary {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
 .card {
   width: 400px;
   padding: 2rem;

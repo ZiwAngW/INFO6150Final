@@ -63,3 +63,22 @@ form input[type="password"] {
   border-color: #0062cc;
   color: #fff;
 }
+
+/* Media Queries */
+@media screen and (max-width: 480px) {
+  .card {
+    width: 80%;
+    max-width: 320px;
+  }
+  
+  .container button {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .btn {
+    flex-wrap: wrap;
+    gap: 0;
+    justify-content: space-between;
+  }
+}
