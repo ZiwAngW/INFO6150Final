@@ -45,7 +45,7 @@
 }
 .sidebar .center ul li .icon {
   font-size: 18px;
-  color: #7451f8;
+  color: #DFA67B;
 }
 .sidebar .center ul li span {
   font-size: 13px;
@@ -62,7 +62,7 @@
   width: 20px;
   height: 20px;
   border-radius: 5px;
-  border: 1px solid #7451f8;
+  border: 1px solid #DFA67B;
   cursor: pointer;
   margin: 5px;
 }
@@ -74,4 +74,6 @@
 }
 .sidebar .bottom .colorOption:nth-child(3) {
   background-color: darkblue;
-}/*# sourceMappingURL=sidebar.css.map */
+}
+
+/*# sourceMappingURL=sidebar.css.map */
