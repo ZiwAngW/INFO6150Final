@@ -46,12 +46,12 @@ const List = () => {
                 <TableCell className="tableCell">{row._id}</TableCell>
                 <TableCell className="tableCell">
                   <div className="cellWrapper">
-                    <img src={row.hotel.photos[0]} alt="" className="image" />
+                    <img src={row.photo} alt="" className="image" />
                     {row.product}
                   </div>
                 </TableCell>
                 <TableCell className="tableCell">{row.hotel.name}</TableCell>
-                <TableCell className="tableCell">{row.user.username}</TableCell>
+                <TableCell className="tableCell">{row.user}</TableCell>
                 <TableCell className="tableCell">{formatDate(row.createdAt)}</TableCell>
                 <TableCell className="tableCell">$ {row.room.price}</TableCell>
                 <TableCell className="tableCell">

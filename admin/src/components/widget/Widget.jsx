@@ -29,11 +29,12 @@ const Widget = ({ type }) => {
   useEffect(() => {
     if (bookData) {
       setBook(bookData.count);
-      let totalPrice = 0;
-    for (let i = 0; i < bookData.data.length; i++) {
-      totalPrice += bookData.data[i].room.price;
-    }
-    setCost(totalPrice);
+    //   let totalPrice = 0;
+    // for (let i = 0; i < bookData.data.length; i++) {
+    //   totalPrice += bookData.data[i].room.price;
+    // }
+    // setCost(totalPrice);
+    setCost(bookData.earnings)
       
     }
   }, [bookData]);
