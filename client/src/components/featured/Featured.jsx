@@ -41,7 +41,7 @@ const Featured = () => {
             </div>
           </div>
 
-          <div className="featuredItem" onClick={()=>handleFeatured("new yourk city")}>
+          <div className="featuredItem" onClick={()=>handleFeatured("new york city")}>
             <img
               src="https://unsplash.com/photos/MxTlLsgPmik/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8Mnx8bmV3JTIweW91ciUyMGNpdHl8ZW58MHx8fHwxNjgyMDI5MTY3&force=true"
               alt=""
