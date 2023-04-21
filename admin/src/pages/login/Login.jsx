@@ -74,12 +74,6 @@ const Login = () => {
             Login
           </Button>
           {error && <div className="text-danger">{error.message}</div>}
-          <div className="text-center mt-3">
-            Don't have an account?{" "}
-            <Button variant="link" href="/signup">
-              Sign up
-            </Button>
-          </div>
         </Form>
       </Card>
     </div>
