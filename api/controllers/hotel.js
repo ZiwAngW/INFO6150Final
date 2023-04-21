@@ -1,5 +1,6 @@
 import Hotel from "../models/Hotel.js";
 import Room from "../models/Room.js";
+import Bookings from "../models/Bookings.js";
 
 export const createHotel = async (req, res, next) => {
   const newHotel = new Hotel(req.body);
@@ -40,11 +41,12 @@ export const getHotel = async (req, res, next) => {
   }
 };
 export const getHotels = async (req, res, next) => {
-  const { min, max, ...others } = req.query;
+  const { min, max, city, ...others } = req.query;
   try {
     const hotels = await Hotel.find({
+      city: { $regex: new RegExp(city, 'i') },
       ...others,
-      cheapestPrice: { $gt: min | 1, $lt: max || 999 },
+      // cheapestPrice: { $gt: min | 1, $lt: max || 9999 },
     }).limit(req.query.limit);
     res.status(200).json(hotels);
   } catch (err) {
@@ -65,7 +67,7 @@ export const countByCity = async (req, res, next) => {
   try {
     const list = await Promise.all(
       cities.map((city) => {
-        return Hotel.countDocuments({ city: city });
+        return Hotel.countDocuments({ city: { $regex: new RegExp(city, "i") } });
       })
     );
     res.status(200).json(list);
@@ -106,3 +108,30 @@ export const getHotelRooms = async (req, res, next) => {
     next(err);
   }
 };
+
+// get all the bookings from the Booking model
+export const getBookings = async (req, res, next) => {
+  try {
+
+    const bookings = await Bookings.find()
+      .populate({
+        path: "hotel",
+        select: "name city country title photos",
+      }
+      ) // Populate the 'hotel' field with all its data
+      .populate("user") // Populate the 'user' field with all its data
+      // get room id from the current Bookings document
+      .populate({
+        path: "room", // Specify the 'room' field to populate
+        select: "title price desc", // Specify the fields to include/exclude in the populated 'room' document
+      }); // Populate the 'room' field with all its data});
+    const response = {
+      status: 200,
+      count: bookings.length,
+      data: bookings,
+    }
+    res.status(200).json(response);
+  } catch (err) {
+    next(err);
+  }
+}

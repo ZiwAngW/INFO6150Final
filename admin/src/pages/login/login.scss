@@ -3,44 +3,59 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(120deg, #afcddc 0%, #0798e0 100%);
+  background-image: url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920&fit=max');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.card {
+.login-card {
   padding: 30px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  background-color: white;
-  width: 400px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-card h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .form-label {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
+  color: #333;
+  margin: 0 15px 0px 0; 
 }
 
 .form-control {
-  height: 40px;
-  font-size: 16px;
+  height: 20px;
+  font-size: 18px;
   border-radius: 5px;
   border: 1px solid #ddd;
   padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .login-button {
-  height: 40px;
-  width: 150px;
-  border-radius: 20px;
+  height: 50px;
+  width: 100%;
+  border-radius: 25px;
   background-color: #0071c2;
   color: white;
   font-weight: bold;
   cursor: pointer;
   border: none;
   transition: all 0.2s ease-in-out;
+  margin-top: 30px;
 }
 
 .login-button:hover {
@@ -48,20 +63,29 @@
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.signup-button {
-  height: 40px;
-  border-radius: 20px;
-  background-color: white;
-  color: #0071c2;
-  font-weight: bold;
-  cursor: pointer;
-  border: 1px solid #0071c2;
+.text-danger {
+  color: #dc3545;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.signup-link {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
   transition: all 0.2s ease-in-out;
 }
 
-.signup-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-  background-color: #0071c2;
-  color: white;
+.signup-link:hover {
+  color: #0071c2;
 }
+

@@ -8,6 +8,7 @@ import {
   getHotelRooms,
   getHotels,
   updateHotel,
+  getBookings
 } from "../controllers/hotel.js";
 import Hotel from "../models/Hotel.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
@@ -31,6 +32,7 @@ router.get("/", getHotels);
 router.get("/countByCity", countByCity);
 router.get("/countByType", countByType);
 router.get("/room/:id", getHotelRooms);
+router.get("/bookings", verifyAdmin, getBookings)
 
 //GET HOTELS BY TYPE
 router.get("/type/:type", async (req, res, next) => {

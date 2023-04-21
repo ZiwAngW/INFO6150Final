@@ -6,11 +6,13 @@ import { useState } from "react";
 import { hotelInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
+import Notification from "../../components/notifications/Notifications";
 
 const NewHotel = () => {
   const [files, setFiles] = useState("");
   const [info, setInfo] = useState({});
   const [rooms, setRooms] = useState([]);
+  const [notification, setNotification] = useState(false);
 
   const { data, loading, error } = useFetch("/rooms");
 
@@ -26,7 +28,6 @@ const NewHotel = () => {
     setRooms(value);
   };
   
-  console.log(files)
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -41,26 +42,37 @@ const NewHotel = () => {
             data,
             {withCredentials: false}
           );
-
+  
           const { url } = uploadRes.data;
           return url;
         })
       );
-
+  
       const newhotel = {
         ...info,
         rooms,
         photos: list,
       };
-
+  
       await axios.post("/hotels", newhotel);
-    } catch (err) {console.log(err)}
+      setNotification(true); // Set notification to true after successful creation
+
+    } catch (err) {
+      console.log(err)
+    }
   };
+
+  const handleCloseNotification = () => {
+    setNotification(false);
+  };
+
+  
   return (
     <div className="new">
       <Sidebar />
       <div className="newContainer">
         <Navbar />
+        
         <div className="top">
           <h1>Add New Product</h1>
         </div>
@@ -89,10 +101,10 @@ const NewHotel = () => {
                   style={{ display: "none" }}
                 />
               </div>
-
+            
               {hotelInputs.map((input) => (
                 <div className="formInput" key={input.id}>
-                  <label>{input.label}</label>
+                   <label htmlFor={input.id}>{input.label}</label>
                   <input
                     id={input.id}
                     onChange={handleChange}
@@ -125,7 +137,14 @@ const NewHotel = () => {
             </form>
           </div>
         </div>
+     
       </div>
+      {notification && (
+      <Notification
+        message="New hotel has been created successfully!"
+        onClose={handleCloseNotification}
+      />
+    )}
     </div>
   );
 };
