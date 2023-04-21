@@ -113,8 +113,9 @@ export const getHotelRooms = async (req, res, next) => {
 // get all the bookings from the Booking model
 export const getBookings = async (req, res, next) => {
   try {
-
-    const bookings = await Bookings.find()
+    const {...others} = req.query;
+    console.log(others);
+    const bookings = await Bookings.find( {...others} )
       .populate({
         path: "hotel",
         select: "name city country title photos",
