@@ -135,11 +135,11 @@ const bookingsWithUsername = bookings.map(booking => {
     ...booking.toObject(),
     user: booking.user.username ,// Extract only the "username" field from the "user" document,
     status: "Approved",
-    photos: booking.hotel.photos[0],
     hotel: {
       name: booking.hotel.name,
       city: booking.hotel.city,
       title: booking.hotel.title,
+      photo: booking.hotel.photos[0],
     },
     room: {
       title: booking.room.title,
@@ -148,10 +148,16 @@ const bookingsWithUsername = bookings.map(booking => {
     },
   }
 });
+const totalEarnings = bookingsWithUsername.reduce((acc, booking) => {
+  return acc + booking.room.price;
+}, 0);
+
+
     const response = {
       status: 200,
       count: bookingsWithUsername.length,
       data: bookingsWithUsername,
+      earnings: totalEarnings,
     }
     res.status(200).json(response);
   } catch (err) {
