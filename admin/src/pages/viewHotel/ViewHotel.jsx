@@ -7,6 +7,8 @@ import { hotelInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
+import Notification from "../../components/notifications/Notifications";
+
 
 const ViewHotel = () => {
   const location = useLocation();
@@ -16,6 +18,7 @@ const ViewHotel = () => {
   const path = location.pathname.split("/")[2];
   const { data, loading, error } = useFetch("/rooms");
   const { data: userData } = useFetch(`/hotels/find/${path}`);
+  const [notification, setNotification] = useState(false);
 
 
   // useEffect(() => {
@@ -60,10 +63,23 @@ const ViewHotel = () => {
       };
 
       await axios.put(`/hotels/${path}`, newhotel);
+      setNotification(true);
+
     } catch (err) { console.log(err) }
   };
+
+  const handleCloseNotification = () => {
+    setNotification(false);
+  };
+
   return (
     <div className="new">
+         {notification && (
+      <Notification
+        message="New hotel has been updated successfully!"
+        onClose={handleCloseNotification}
+      />
+    )}
       <Sidebar />
       <div className="newContainer">
         <Navbar />
@@ -72,14 +88,7 @@ const ViewHotel = () => {
         </div>
         <div className="bottom">
           <div className="left">
-            {/* <img
-              src={
-                files
-                  ? URL.createObjectURL(files[0])
-                  : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
-              }
-              alt=""
-            /> */}
+
             {userData && userData.photos && userData.photos.length > 0 ? (
               <img src={userData.photos[0]} alt="" />
             ) : (
@@ -134,7 +143,7 @@ const ViewHotel = () => {
                                     : input.id === 'cheapestPrice'
                                       ? userData['cheapestPrice']
                                       : input.id === 'desc'
-                                        ? userData['description']
+                                        ? userData['desc']
                                         : input.placeholder
                     }
                   />
@@ -169,7 +178,9 @@ const ViewHotel = () => {
           </div>
         </div>
       </div>
+   
     </div>
+    
   );
 };
 
