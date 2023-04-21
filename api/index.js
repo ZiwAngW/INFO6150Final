@@ -47,6 +47,10 @@ app.use(cors({
 
 app.use(cookieParser())
 app.use(express.json());
+// simple get health check
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
