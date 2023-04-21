@@ -3,6 +3,9 @@
   max-width: 960px;
   margin: 0 auto;
 }
+.container h1{
+  text-align: center;
+}
 
 /* Form styles */
 form {
@@ -34,6 +37,12 @@ form input[type="password"] {
   border-radius: 0.25rem;
   font-size: 1rem;
   cursor: pointer;
+}
+.btn{
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  justify-content:center;
 }
 
 .container button:hover,

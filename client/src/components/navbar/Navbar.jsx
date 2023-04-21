@@ -1,7 +1,11 @@
+import {
+  faHouse
+} from "@fortawesome/free-solid-svg-icons";
 import "./navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Navbar = () => {
   const { user ,dispatch} = useContext(AuthContext);
   let nav = useNavigate()
@@ -20,7 +24,8 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navContainer">
         <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
-          <span className="logo">lamabooking</span>
+          <FontAwesomeIcon icon={faHouse} className="NavIcon" />
+          <span className="logo"> HouseHub.com</span>
         </Link>
         {user ? <div>{user.username}
             <button className="navButton" onClick={logOut}>sign out</button>
