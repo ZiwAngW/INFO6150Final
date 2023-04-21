@@ -13,14 +13,30 @@ const Widget = ({ type }) => {
   let data_w;
   const { data: hotelData, loading, error } = useFetch("/hotels");
   const { data: userData } = useFetch("/users"); // Add this line to fetch user data
+  const { data: bookData } = useFetch("/hotels/bookings");
   const [numHotel, setNumHotel] = useState(0);
   const [numUser, setNumUser] = useState(0);
+  const [bookings, setBook] = useState(0);
+  const [cost, setCost] = useState(0);
+
 
   useEffect(() => {
     if (hotelData) {
       setNumHotel(hotelData.length);
     }
   }, [hotelData]);
+
+  useEffect(() => {
+    if (bookData) {
+      setBook(bookData.count);
+      let totalPrice = 0;
+    for (let i = 0; i < bookData.data.length; i++) {
+      totalPrice += bookData.data[i].room.price;
+    }
+    setCost(totalPrice);
+      
+    }
+  }, [bookData]);
 
   
   useEffect(() => {
@@ -72,11 +88,11 @@ const Widget = ({ type }) => {
       break;
     case "earning":
       data_w = {
-        title: "EARNINGS",
-        isMoney: true,
-        route:"/hotels",
+        title: "BOOKINGS",
+        isMoney: false,
+        route:"/",
 
-        value: amount,
+        value: bookings,
         link: "View net earnings",
         icon: (
           <MonetizationOnOutlinedIcon
@@ -88,11 +104,11 @@ const Widget = ({ type }) => {
       break;
     case "balance":
       data_w = {
-        title: "BALANCE",
+        title: "EARNINGS",
         isMoney: true,
-        route:"/hotels",
+        route:"/",
 
-        value: amount,
+        value: cost,
         link: "See details",
         icon: (
           <AccountBalanceWalletOutlinedIcon

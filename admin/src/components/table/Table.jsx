@@ -53,7 +53,7 @@ const List = () => {
                 <TableCell className="tableCell">{row.hotel.name}</TableCell>
                 <TableCell className="tableCell">{row.user.username}</TableCell>
                 <TableCell className="tableCell">{formatDate(row.createdAt)}</TableCell>
-                <TableCell className="tableCell">{row.room.price}</TableCell>
+                <TableCell className="tableCell">$ {row.room.price}</TableCell>
                 <TableCell className="tableCell">
                   <span className={`status ${row.status}`}>{row.status}</span>
                 </TableCell>
