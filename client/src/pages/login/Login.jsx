@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button, Card } from "react-bootstrap";
 import "./login.css";
 
 const Login = () => {
@@ -36,45 +36,48 @@ const Login = () => {
   };
 
   return (
-    <Container>
-      <h1>Login</h1>
-      <Form onSubmit={handleClick}>
-        <Form.Group controlId="formBasicUsername">
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter username"
-            name="username"
-            onChange={handleChange}
-            required
-          />
-        </Form.Group>
+    <div className="background">
+      <Container>
+        <Card className="card">
+          <h1 className="card-header">Login</h1>
+          <Card.Body>
+            <Form onSubmit={handleClick}>
+              <Form.Group controlId="formBasicUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter username"
+                  name="username"
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            name="password"
-            onChange={handleChange}
-            required
-          />
-        </Form.Group>
-        <div className="btn">
-          <Button variant="primary" type="submit">
-            Sign In
-          </Button>
-          <Button variant="primary" onClick={toHome}>
-            Go Back
-          </Button>
-        </div>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+              <div className="btn">
+                <Button variant="primary" type="submit">
+                  Sign In
+                </Button>
+                <Button variant="primary" onClick={toHome}>
+                  Go Back
+                </Button>
+              </div>
 
-      </Form>
-      {error && <span>{error.message}</span>}
-
-    </Container>
-
-
+            </Form>
+            {error && <span>{error.message}</span>}
+          </Card.Body>
+        </Card>
+      </Container>
+    </div>
   );
 };
 

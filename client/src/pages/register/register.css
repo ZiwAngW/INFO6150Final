@@ -1,0 +1,84 @@
+/* Container styles */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  background-image: url("https://images.unsplash.com/photo-1558862657-dab0df6a9f37");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 400px;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0.5rem;
+}
+
+/* Form styles */
+form {
+  margin-bottom: 2rem;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Button styles */
+.container .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  width: 100%;
+}
+
+.container .btn-primary:hover,
+.container .btn-primary:focus {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  color: #fff;
+}
+
+.container .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.container .btn-secondary:hover,
+.container .btn-secondary:focus {
+  background-color: #5a6268;
+  border-color: #545b62;
+  color: #fff;
+}
+
+.container .btn-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
