@@ -4,10 +4,14 @@ import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axios from "axios";
+import Notification from "../../components/notifications/Notifications";
+
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [info, setInfo] = useState({});
+  const [notification, setNotification] = useState(false);
+
 
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -33,14 +37,23 @@ const New = ({ inputs, title }) => {
       };
 
       await axios.post("/auth/register", newUser);
+      setNotification(true);
     } catch (err) {
       console.log(err);
     }
   };
-
+  const handleCloseNotification = () => {
+    setNotification(false);
+  };
   console.log(info);
   return (
     <div className="new">
+               {notification && (
+      <Notification
+        message="New hotel has been updated successfully!"
+        onClose={handleCloseNotification}
+      />
+    )}
       <Sidebar />
       <div className="newContainer">
         <Navbar />

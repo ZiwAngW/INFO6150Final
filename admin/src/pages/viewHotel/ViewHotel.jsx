@@ -76,7 +76,7 @@ const ViewHotel = () => {
     <div className="new">
          {notification && (
       <Notification
-        message="New hotel has been updated successfully!"
+        message="New user has been added successfully!"
         onClose={handleCloseNotification}
       />
     )}
