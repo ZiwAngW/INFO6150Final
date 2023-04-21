@@ -12,17 +12,30 @@ import Notification from "../../components/notifications/Notifications";
 
 const ViewHotel = () => {
   const location = useLocation();
-  const [files, setFiles] = useState("");
+  const [files, setFiles] = useState(null);
   const [info, setInfo] = useState({});
   const [rooms, setRooms] = useState([]);
   const path = location.pathname.split("/")[2];
   const { data, loading, error } = useFetch("/rooms");
   const { data: userData } = useFetch(`/hotels/find/${path}`);
   const [notification, setNotification] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
+
 
 
   // useEffect(() => {
-
+    useEffect(() => {
+      if (files) {
+        const file = files[0];
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          setImageUrl(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      } else {
+        setImageUrl("");
+      }
+    }, [files]);
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
@@ -55,7 +68,7 @@ const ViewHotel = () => {
           return url;
         })
       );
-
+      setImageUrl(list[0]);
       const newhotel = {
         ...info,
         rooms,
@@ -87,15 +100,18 @@ const ViewHotel = () => {
           <h1>Add New Product</h1>
         </div>
         <div className="bottom">
-          <div className="left">
-
-            {userData && userData.photos && userData.photos.length > 0 ? (
+        <div className="left">
+        {imageUrl ? (
+            <img src={imageUrl} alt="" />
+          ) : (
+            userData && userData.photos && userData.photos.length > 0 ? (
               <img src={userData.photos[0]} alt="" />
             ) : (
               <img src="https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg" alt="" />
-            )}
+            )
+          )}
+</div>
 
-          </div>
           <div className="right">
             <form>
               <div className="formInput">
@@ -104,17 +120,12 @@ const ViewHotel = () => {
                 </label>
 
                 <input
-                  type="file"
-                  id="file"
-                  multiple
-                  onChange={(e) => setFiles(e.target.files)}
-                  style={{ display: "none" }}
-                />
-                {/* <label for="file-upload" class="custom-file-upload">
-                {userData && userData.photos && (
-                  <img src={userData.photos[0]} alt="" />
-                )}
-                </label> */}
+                type="file"
+                id="file"
+                multiple
+                onChange={(e) => setFiles(e.target.files)}
+                style={{ display: "none" }}
+              />
 
               </div>
 
