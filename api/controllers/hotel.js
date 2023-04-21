@@ -120,16 +120,38 @@ export const getBookings = async (req, res, next) => {
         select: "name city country title photos",
       }
       ) // Populate the 'hotel' field with all its data
-      .populate("user") // Populate the 'user' field with all its data
+      .populate({
+        path: "user",
+        select: "username"
+      }) // Populate the 'user' field with all its data
       // get room id from the current Bookings document
       .populate({
         path: "room", // Specify the 'room' field to populate
         select: "title price desc", // Specify the fields to include/exclude in the populated 'room' document
       }); // Populate the 'room' field with all its data});
+      // Loop through the bookings and extract only the "username" from the populated "user" document
+const bookingsWithUsername = bookings.map(booking => {
+  return {
+    ...booking.toObject(),
+    user: booking.user.username ,// Extract only the "username" field from the "user" document,
+    status: "Approved",
+    photos: booking.hotel.photos[0],
+    hotel: {
+      name: booking.hotel.name,
+      city: booking.hotel.city,
+      title: booking.hotel.title,
+    },
+    room: {
+      title: booking.room.title,
+      price: booking.room.price,
+      descr: booking.room.desc,
+    },
+  }
+});
     const response = {
       status: 200,
-      count: bookings.length,
-      data: bookings,
+      count: bookingsWithUsername.length,
+      data: bookingsWithUsername,
     }
     res.status(200).json(response);
   } catch (err) {

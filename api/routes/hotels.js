@@ -38,7 +38,7 @@ router.get("/bookings", verifyAdmin, getBookings)
 router.get("/type/:type", async (req, res, next) => {
   const type = req.params.type;
   try {
-    const hotels = await Hotel.find({ type: type });
+    const hotels = await Hotel.find({ type: { $regex: new RegExp(`^${type}$`, 'i') } }); // Use $regex with 'i' option for case insensitivity
     res.status(200).json(hotels);
   } catch (err) {
     next(err);

@@ -40,7 +40,7 @@ mongoose.connection.on("disconnected", () => {
 //   next();
 // });
 app.use(cors({
-  origin: ['http://localhost:3001', 'http://localhost:3000', 'http://localhost:3002', 'http://localhost:3003'], // Update with the appropriate client URL
+  origin: ['http://localhost:3001', 'http://localhost:3003', 'https://househub-client.vercel.app', 'https://househub-admin.vercel.app'], // Update with the appropriate client URL
   credentials: true // Enable credentials (cookies, authorization headers, etc.)
 }));
 
