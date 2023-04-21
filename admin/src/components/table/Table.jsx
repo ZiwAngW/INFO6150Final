@@ -29,7 +29,7 @@ const List = () => {
           <TableRow>
             <TableCell className="tableCell">Booking ID</TableCell>
             <TableCell className="tableCell">Hotel Logo</TableCell>
-            <TableCell className="tableCell">Payment Method</TableCell>
+            <TableCell className="tableCell">Hotel Name</TableCell>
             <TableCell className="tableCell">Customer</TableCell>
             <TableCell className="tableCell">Date</TableCell>
             <TableCell className="tableCell">Amount</TableCell>
