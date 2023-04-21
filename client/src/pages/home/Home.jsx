@@ -6,20 +6,30 @@ import MailList from "../../components/mailList/MailList";
 import Navbar from "../../components/navbar/Navbar";
 import PropertyList from "../../components/propertyList/PropertyList";
 import "./home.css";
+import {
+  faHeart,
+  faLightbulb
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Home = () => {
   return (
     <div>
       <Navbar />
-      <Header/>
+      <Header />
       <div className="homeContainer">
-        <Featured/>
-        <h1 className="homeTitle">Browse by property type</h1>
-        <PropertyList/>
-        <h1 className="homeTitle">Homes guests love</h1>
-        <FeaturedProperties/>
-        <MailList/>
-        <Footer/>
+        <Featured />
+        <div className="HomeOptions">
+          <FontAwesomeIcon icon={faLightbulb} className="HomeIcon" />
+          <h1 className="homeTitle">Browse by Housing Type</h1>
+        </div>
+        <PropertyList />
+        <div className="HomeOptions">
+          <FontAwesomeIcon icon={faHeart} className="HomeIcon" />
+          <h1 className="homeTitle">Homes guests love</h1>
+        </div>
+        <FeaturedProperties />
+        <MailList /><Footer />
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ const Featured = () => {
         <>
           <div className="featuredItem">
             <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o="
+              src="https://unsplash.com/photos/NrDYqseeAxk/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8NXx8Ym9zdG9ufGVufDB8fHx8MTY4MjAyOTEwOA&force=true"
               alt=""
               className="featuredImg"
             />
@@ -26,7 +26,7 @@ const Featured = () => {
 
           <div className="featuredItem">
             <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/690334.webp?k=b99df435f06a15a1568ddd5f55d239507c0156985577681ab91274f917af6dbb&o="
+              src="https://unsplash.com/photos/MxTlLsgPmik/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8Mnx8bmV3JTIweW91ciUyMGNpdHl8ZW58MHx8fHwxNjgyMDI5MTY3&force=true"
               alt=""
               className="featuredImg"
             />
@@ -37,7 +37,7 @@ const Featured = () => {
           </div>
           <div className="featuredItem">
             <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/689422.webp?k=2595c93e7e067b9ba95f90713f80ba6e5fa88a66e6e55600bd27a5128808fdf2&o="
+              src="https://unsplash.com/photos/UZVlSjrIJ3o/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8Mnx8bG9zJTIwYW5nZWxlc3xlbnwwfHx8fDE2ODIwMjkwNzE&force=true"
               alt=""
               className="featuredImg"
             />

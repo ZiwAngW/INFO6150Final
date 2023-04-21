@@ -1,6 +1,6 @@
 .header {
-  background-color: #003580;
-  color: white;
+  background-color: #FFF2CC;
+  color:black;
   display: flex;
   justify-content: center;
   position: relative;
@@ -39,8 +39,8 @@
 }
 
 .headerBtn {
-  background-color: #0071c2;
-  color: white;
+  background-color: #DFA67B;
+  color: black;
   font-weight: 500;
   border: none;
   padding: 10px;
@@ -50,7 +50,7 @@
 .headerSearch {
   height: 30px;
   background-color: white;
-  border: 3px solid #febb02;
+  border: 3px solid #FFD966;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -63,7 +63,7 @@
 }
 
 .headerIcon {
-  color: lightgray;
+  color: #F4B183;
 }
 
 .headerSearchItem {
@@ -76,9 +76,14 @@
   border: none;
   outline: none;
 }
+.headerSearch ::placeholder{
+  color: black;
+  font-weight: 600px;
+  font-size:small;
+}
 
 .headerSearchText {
-  color: lightgray;
+  color: black;
   cursor: pointer;
 }
 
