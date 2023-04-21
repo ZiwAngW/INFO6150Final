@@ -13,26 +13,10 @@
   align-items: center;
   justify-content: space-between;
 }
-.navbar .wrapper .search {
-  display: flex;
-  align-items: center;
-  border: 0.5px solid lightgray;
-  padding: 3px;
-}
-.navbar .wrapper .search input {
-  border: none;
-  outline: none;
-  background: transparent;
-}
-.navbar .wrapper .search input::-moz-placeholder {
-  font-size: 12px;
-}
-.navbar .wrapper .search input::placeholder {
-  font-size: 12px;
-}
 .navbar .wrapper .items {
   display: flex;
   align-items: center;
+  margin-left: 90%;
 }
 .navbar .wrapper .items .item {
   display: flex;
@@ -62,4 +46,6 @@
   position: absolute;
   top: -5px;
   right: -5px;
-}/*# sourceMappingURL=navbar.css.map */
+}
+
+/*# sourceMappingURL=navbar.css.map */
