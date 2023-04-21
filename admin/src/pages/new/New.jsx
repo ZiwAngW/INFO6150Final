@@ -50,7 +50,7 @@ const New = ({ inputs, title }) => {
     <div className="new">
                {notification && (
       <Notification
-        message="New hotel has been updated successfully!"
+        message="New User has been updated successfully!"
         onClose={handleCloseNotification}
       />
     )}
