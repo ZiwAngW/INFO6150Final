@@ -1,6 +1,7 @@
 import Hotel from "../models/Hotel.js";
 import Room from "../models/Room.js";
 import Bookings from "../models/Bookings.js";
+import mongoose from "mongoose";
 
 export const createHotel = async (req, res, next) => {
   const newHotel = new Hotel(req.body);
@@ -113,9 +114,12 @@ export const getHotelRooms = async (req, res, next) => {
 // get all the bookings from the Booking model
 export const getBookings = async (req, res, next) => {
   try {
-    const {...others} = req.query;
-    console.log(others);
-    const bookings = await Bookings.find( {...others} )
+    const { user, ...others } = req.query;
+    const query = { ...others };
+    if (user) {
+      query.user = mongoose.Types.ObjectId(user); // Convert user ID to ObjectId
+    }
+    const bookings = await Bookings.find(query)
       .populate({
         path: "hotel",
         select: "name city country title photos",
