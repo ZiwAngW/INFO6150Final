@@ -3,7 +3,7 @@
         "index.js": {
             "memory": 3008,
             "maxDuration": 60,
-            "runtime": "vercel-node@18"
+            "runtime": "vercel@node"
         }
     }
 }
