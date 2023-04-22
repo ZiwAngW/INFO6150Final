@@ -1,3 +1,7 @@
 api/.env
 api/yarn.lock
 admin/yarn.lock
+admin/package.json
+client/package.json
+admin/yarn.lock
+api/yarn.lock
