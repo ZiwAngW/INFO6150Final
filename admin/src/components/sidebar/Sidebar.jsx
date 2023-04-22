@@ -5,18 +5,18 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 import StoreIcon from "@mui/icons-material/Store";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import { Link,useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 
 const Sidebar = () => {
-  let nav = useNavigate()
+  let nav = useNavigate();
   const { dispatch } = useContext(DarkModeContext);
-  const logOut =()=>{
-    dispatch({type:"LOGOUT"})
-    window.localStorage.clear()
-    nav(`../login`)
-  }
+  const logOut = () => {
+    dispatch({ type: "LOGOUT" });
+    window.localStorage.clear();
+    nav(`../login`);
+  };
   return (
     <div className="sidebar">
       <div className="top">
@@ -27,14 +27,13 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-          
-          <Link to="/"style={{ textDecoration: "none" }}>
-          <li>
-            <DashboardIcon className="icon" />
-            <span>Dashboard</span>
-          </li>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <li>
+              <DashboardIcon className="icon" />
+              <span>Dashboard</span>
+            </li>
           </Link>
-          
+
           <p className="title">RECORDS</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
@@ -54,9 +53,9 @@ const Sidebar = () => {
               <span>Rooms</span>
             </li>
           </Link>
-         
+
           <p className="title">OPTIONS</p>
-          
+
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
@@ -82,3 +81,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
