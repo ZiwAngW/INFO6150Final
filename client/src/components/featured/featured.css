@@ -1,19 +1,18 @@
 @media only screen and (max-width: 600px) {
   .featured {
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+    /* max-width: 720px; */
+    width: 50%;
   }
   
   .featuredItem {
-  height: auto;
-  width: 100%;
+    width: 50%;
+    height: 50%;
   }
   
   .featuredTitles {
-  position: static;
+  /* position: static;
   margin-top: 10px;
-  text-align: center;
+  font-size: 10px; */
   }
   }
   
@@ -45,4 +44,5 @@
   position: absolute;
   bottom: 20px;
   left: 20px;
+  font-size:small;
   }

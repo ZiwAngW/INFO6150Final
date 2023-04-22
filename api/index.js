@@ -26,7 +26,7 @@ mongoose.connection.on("disconnected", () => {
 
 
 app.use(cors({
-  origin: ['http://localhost:3001','http://localhost:3000', 'http://localhost:3002', 'http://localhost:3003', 'http://house-hub.eastus.cloudapp.azure.com','http://house-hub.eastus.cloudapp.azure.com:3000'], // Update with the appropriate client URL
+  origin: ['http://localhost:50419','http://localhost:3001','http://localhost:3000', 'http://localhost:3002', 'http://localhost:3003', 'http://house-hub.eastus.cloudapp.azure.com','http://house-hub.eastus.cloudapp.azure.com:3000'], // Update with the appropriate client URL
   credentials: true // Enable credentials (cookies, authorization headers, etc.)
 }));
 

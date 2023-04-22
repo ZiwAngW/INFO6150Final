@@ -1,17 +1,19 @@
 /* Mobile styles */
 @media screen and (max-width: 768px) {
   .pList {
-    flex-wrap: wrap;
-    justify-content: center;
+    
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
   }
   
   .pListItem {
-    width: 90%;
-    margin-bottom: 20px;
+    /* width: 90%;
+    margin-bottom: 20px; */
   }
   
   .pListTitles {
-    padding: 10px;
+    /* padding: 10px; */
   }
   
   .pListTitles > h1 {
@@ -25,7 +27,8 @@
   }
   
   .pListImg {
-    height: 200px;
+    height: 90px;
+    width: 90px;
   }
 }
 

@@ -26,15 +26,16 @@
 
 @media screen and (max-width: 768px) {
   .homeTitle {
-    width: 90%;
-    font-size: 18px;
+    width: 70%;
+    font-size: 15px;
   }
 
   .HomeOptions {
     flex-wrap: wrap;
+    width: 50%;
   }
 
   .HomeIcon {
-    height: 15px;
+    height: 14px;
   }
 }

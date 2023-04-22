@@ -26,7 +26,7 @@ const Home = () => {
         <PropertyList />
         <div className="HomeOptions">
           <FontAwesomeIcon icon={faHeart} className="HomeIcon" />
-          <h1 className="homeTitle">Homes guests love</h1>
+          <h1 className="homeTitle">Homes Guests Prefer</h1>
         </div>
         <FeaturedProperties />
         <MailList /><Footer />
