@@ -75,7 +75,7 @@ const ViewHotel = () => {
         photos: list,
       };
 
-      await axios.put(`/hotels/${path}`, newhotel);
+      await axios.put(`http://house-hub.eastus.cloudapp.azure.com:8800/api/hotels/${path}`, newhotel);
       setNotification(true);
 
     } catch (err) { console.log(err) }
