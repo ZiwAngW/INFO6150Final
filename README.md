@@ -5,7 +5,6 @@ HouseHub is a hotel booking project built using Node.js, Express.js, and React.j
 
 | Following .env file is needed in the api folder
 ```
-MONGODB_URI = 
 JWT = 
 MAILGUN_API_KEY= 
 MONGO= 
