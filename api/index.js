@@ -35,7 +35,7 @@ app.use(cookieParser())
 app.use(express.json());
 // simple get health check
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Health Good");
 });
 
 app.use("/api/auth", authRoute);
