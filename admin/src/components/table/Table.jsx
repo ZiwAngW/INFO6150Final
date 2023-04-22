@@ -38,7 +38,7 @@ useEffect(() => {
       // handle the error here
     });
 } else {
-  fetch(`http://house-hub.eastus.cloudapp.azure.com/api/hotels/bookings`, {
+  fetch(`http://house-hub.eastus.cloudapp.azure.com:8800/api/hotels/bookings`, {
     method: 'GET',
     credentials: 'include',
   })
