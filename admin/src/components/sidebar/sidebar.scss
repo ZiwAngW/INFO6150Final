@@ -88,3 +88,18 @@
       }
   }
 }
+
+@media (max-width: 600px) {
+  .sidebar .logo,
+  .sidebar .title {
+    display: none;
+  }
+
+  .sidebar .center ul li span {
+    display: none;
+  }
+
+  .sidebar .center ul li .icon {
+    margin-right: 0;
+  }
+}

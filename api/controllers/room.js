@@ -1,10 +1,10 @@
 import Room from "../models/Room.js";
 import Hotel from "../models/Hotel.js";
-import jwt from "jsonwebtoken";
 import Bookings from "../models/Bookings.js";
 import { createError } from "../utils/error.js";
-import { json } from "express";
 import mongoose from "mongoose";
+import {sendEmail} from "../utils/sendEmail.js";
+
 
 
 export const createRoom = async (req, res, next) => {
@@ -62,7 +62,6 @@ export const updateRoomAvailability = async (req, res, next) => {
         }
       );
       const room = await Room.findOne({ "roomNumbers._id": req.params.id });
-      console.log(`room ${room}`);
 
       // Save new booking
       const newBooking = new Bookings({
@@ -74,13 +73,32 @@ export const updateRoomAvailability = async (req, res, next) => {
 
       console.log("Bookings and Room status saved");
 
+
+
+      // Populate the user field with the corresponding User document
+    // Populate the user, hotel, and room fields with corresponding documents
+  await Bookings.populate(newBooking, { path: 'user hotel room' });
+
       // Commit the transaction
       await session.commitTransaction();
-
       // End the session
       session.endSession();
-
       res.status(200).json("Room status has been updated.");
+      console.log(`user.email: ${newBooking.user.email}`);
+      sendEmail(
+        newBooking.user.email,
+        newBooking.user.username,
+        // trim the booking id to 5 characters
+        newBooking._id.toString().slice(0, 5),
+        // format the date to a readable format
+        newBooking.createdAt.toDateString(),
+        newBooking.hotel.name,
+        newBooking.room.title,
+        newBooking.hotel.city,
+        newBooking.room.price
+
+      );
+
     } catch (err) {
       // An error occurred, so rollback the transaction
       await session.abortTransaction();
@@ -96,25 +114,6 @@ export const updateRoomAvailability = async (req, res, next) => {
 };
 
 
-
-
-  //   await Room.updateOne(
-  //     { "roomNumbers._id": req.params.id },
-  //     {
-  //       $push: {
-  //         "roomNumbers.$.unavailableDates": req.body.dates
-  //       },
-  //     }
-  //   );
-
-  //   const newBooking = new Bookings({
-  //     hotel: mongoose.Types.ObjectId(req.body.hotels), // Replace "hotelId" with the actual ID of the hotel you want to book
-  //     room: mongoose.Types.ObjectId(Room._id), // Replace "roomId" with the actual ID of the room you want to book
-  //     user: mongoose.Types.ObjectId(decoded_jwt.id,), // Replace "userId" with the actual ID of the user making the booking
-  // });
-  //   await newBooking.save();
-
-// };
 export const deleteRoom = async (req, res, next) => {
   const hotelId = req.params.hotelid;
   try {
