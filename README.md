@@ -4,10 +4,12 @@
 HouseHub is a hotel booking project built using Node.js, Express.js, and React.js. It allows users to search and book hotels, while also providing an admin panel for managing hotel listings and bookings. The project uses MongoDB Atlas for the database and is hosted on an Azure virtual machine (VM) with process monitoring using PM2.
 
 | Following .env file is needed in the api folder
+```
 MONGODB_URI = 
 JWT = 
 MAILGUN_API_KEY= 
 MONGO= 
+```
 ## Features
 
 -   User-friendly interface for searching and booking hotels
