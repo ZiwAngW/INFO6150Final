@@ -90,13 +90,11 @@
 }
 
 @media (max-width: 600px) {
-  .sidebar .logo,
-  .sidebar .title {
-    display: none;
+  .sidebar {
+    min-height: 30vh;
   }
-
-  .sidebar .center ul li span {
-    display: none;
+  .sidebar .logo {
+    flex-direction: column;
   }
 
   .sidebar .center ul li .icon {
