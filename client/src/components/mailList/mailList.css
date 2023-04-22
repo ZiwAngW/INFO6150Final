@@ -1,24 +1,35 @@
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
 .mail {
 padding: 20px;
-max-width: max-content;
+max-width: 50%;
 }
 
 .mailInputContainer > input {
 width: 100%;
-max-width: 300px;
+max-width: 50%;
+text-align: center;
 height: 40px;
 padding: 10px;
 margin-bottom: 10px;
 }
+.mailTitle{
+    font-size: 25px;
+}
+.mailDesc{
+    font-size: 15px;
+}
+.mailInputContainer{
+    text-align: center;
+}
 
 .mailInputContainer > button {
-width: 100%;
+width: 60%;
 height: 50px;
 font-size: 16px;
 }
 }
+
 
 /* Desktop Styles */
 

@@ -26,8 +26,8 @@
 
 @media screen and (max-width: 768px) {
   .homeTitle {
-    width: 70%;
-    font-size: 15px;
+    width: 80%;
+    font-size: 12px;
   }
 
   .HomeOptions {
@@ -36,6 +36,6 @@
   }
 
   .HomeIcon {
-    height: 14px;
+    height: 15px;
   }
 }
