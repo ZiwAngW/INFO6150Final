@@ -82,4 +82,17 @@
   font-weight: bold;
   cursor: pointer;
   margin-top: 10px;
+}
+.new .newContainer .top .right form .custom-file-upload,
+.new .newContainer .bottom .right form .custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.new .newContainer .top .right form .custom-file-upload img,
+.new .newContainer .bottom .right form .custom-file-upload img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }/*# sourceMappingURL=viewHotel.css.map */

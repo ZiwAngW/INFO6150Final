@@ -1,31 +1,53 @@
-.mail{
-  width: 100%;
-  margin-top: 20px;
-  background-color: #FFF2CC;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 50px;
+
+@media only screen and (max-width: 600px) {
+.mail {
+padding: 20px;
 }
 
-.mailInputContainer>input{
-  width: 300px;
-  height: 30px;
-  padding: 10px;
-  border: none;
-  margin-right: 10px;
-  border-radius: 5px;
+.mailInputContainer > input {
+width: 100%;
+max-width: 300px;
+height: 40px;
+padding: 10px;
+margin-bottom: 10px;
 }
 
+.mailInputContainer > button {
+width: 100%;
+height: 50px;
+font-size: 16px;
+}
+}
 
-.mailInputContainer>button{
-  height: 50px;
-  background-color: #DFA67B;
-  color: black;
-  font-weight: 500;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+/* Desktop Styles */
+
+.mail {
+width: 100%;
+margin-top: 20px;
+background-color: #FFF2CC;
+color: black;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 20px;
+padding: 50px;
+}
+
+.mailInputContainer > input {
+width: 300px;
+height: 30px;
+padding: 10px;
+border: none;
+margin-right: 10px;
+border-radius: 5px;
+}
+
+.mailInputContainer > button {
+height: 50px;
+background-color: #DFA67B;
+color: black;
+font-weight: 500;
+border: none;
+border-radius: 5px;
+cursor: pointer;
 }

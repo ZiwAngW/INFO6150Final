@@ -1,4 +1,48 @@
-.searchItem {
+@media (max-width: 768px) {
+  .searchItem {
+  flex-direction: column;
+  }
+  
+  .siImg {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  }
+  
+  .siDesc {
+  flex: 1;
+  }
+  
+  .siTitle {
+  font-size: 16px;
+  }
+  
+  .siDetailTexts {
+  text-align: left;
+  gap: 0;
+  }
+  
+  .siPrice {
+  font-size: 20px;
+  margin-bottom: 5px;
+  }
+  
+  .siRating {
+  margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  .siRating>button {
+  margin-top: 10px;
+  }
+  
+  .siDetails {
+  margin-top: 10px;
+  }
+  }
+  
+  .searchItem {
   border: 1px solid lightgray;
   padding: 10px;
   border-radius: 5px;
@@ -6,99 +50,99 @@
   justify-content: space-between;
   gap: 20px;
   margin-bottom: 20px;
-}
-
-.siImg {
+  }
+  
+  .siImg {
   width: 200px;
   height: 200px;
   object-fit: cover;
-}
-
-.siDesc {
+  }
+  
+  .siDesc {
   display: flex;
   flex-direction: column;
   gap: 10px;
   flex: 2;
-}
-
-.siTitle {
+  }
+  
+  .siTitle {
   font-size: 20px;
   color: #DFA67B;
-}
-
-.siDistance {
+  }
+  
+  .siDistance {
   font-size: 12px;
-}
-
-.siTaxiOp {
+  }
+  
+  .siTaxiOp {
   font-size: 12px;
   background-color: #FFF2CC;
   color: black;
   width: max-content;
   padding: 3px;
   border-radius: 5px;
-}
-
-.siSubtitle{
+  }
+  
+  .siSubtitle{
   font-size: 12px;
   font-weight: bold;
-}
-
-.siFeatures{
+  }
+  
+  .siFeatures{
   font-size: 12px;
-}
-
-.siCancelOp{
+  }
+  
+  .siCancelOp{
   font-size: 12px;
   color: #DFA67B;
   font-weight: bold;
-}
-
-.siCancelOpSubtitle{
+  }
+  
+  .siCancelOpSubtitle{
   font-size: 12px;
   color: #DFA67B;
-}
-
-.siDetails {
+  }
+  
+  .siDetails {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between
-}
-
-.siRating{
+  }
+  
+  .siRating{
   display: flex;
   justify-content: space-between
-}
-
-.siRating>span{
+  }
+  
+  .siRating>span{
   font-weight: 500;
-}
-.siRating>button{
- background-color: #DFA67B;
- color: black;
- padding: 5px;
- font-weight: bold;
- border: none;
-}
-
-.siDetailTexts{
+  }
+  .siRating>button{
+  background-color: #DFA67B;
+  color: black;
+  padding: 5px;
+  font-weight: bold;
+  border: none;
+  }
+  
+  .siDetailTexts{
   text-align: right;
   display: flex;
   flex-direction: column;
   gap: 5px;
-}
-
-.siPrice{
+  }
+  
+  .siPrice{
   font-size: 24px;
-}
-
-.siTaxOp{
+  }
+  
+  .siTaxOp{
   font-size: 12px;
   color: gray;
-}
-
-.siCheckButton{
+  }
+  
+  .siCheckButton{
   background-color: #DFA67B;
   color: black;
   font-weight: bold;
@@ -106,4 +150,4 @@
   border: none;
   cursor: pointer;
   border-radius: 5px;
-}
+  }
