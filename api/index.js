@@ -24,23 +24,9 @@ mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
 });
 
-//middlewares=
 
-// // Enable CORS with allowed origins
-// const allowedOrigins = ['*']; // List of allowed origins (URLs)
-
-// // Enable CORS with allowed origins
-// app.use(cors({
-//   origin: allowedOrigins
-// }));
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-//   next();
-// });
 app.use(cors({
-  origin: ['http://localhost:3001','http://localhost:3000', 'http://localhost:3002', 'http://localhost:3003', 'https://househub-client.vercel.app', 'https://househub-admin.vercel.app'], // Update with the appropriate client URL
+  origin: ['http://localhost:3001','http://localhost:3000', 'http://localhost:3002', 'http://localhost:3003', 'http://house-hub.eastus.cloudapp.azure.com','http://house-hub.eastus.cloudapp.azure.com:3000'], // Update with the appropriate client URL
   credentials: true // Enable credentials (cookies, authorization headers, etc.)
 }));
 

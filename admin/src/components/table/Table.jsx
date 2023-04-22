@@ -25,7 +25,7 @@ useEffect(() => {
   if (path) {
   console.log("I am in this path ");
   // apiCall = `/hotels/bookings?users=${path}`;
-  fetch(`http://localhost:8800/api/hotels/bookings?user=${path}`, {
+  fetch(`http://house-hub.eastus.cloudapp.azure.com:8800/api/hotels/bookings?user=${path}`, {
     method: 'GET',
     credentials: 'include',
   })
@@ -38,7 +38,7 @@ useEffect(() => {
       // handle the error here
     });
 } else {
-  fetch(`http://localhost:8800/api/hotels/bookings`, {
+  fetch(`http://house-hub.eastus.cloudapp.azure.com:8800/api/hotels/bookings`, {
     method: 'GET',
     credentials: 'include',
   })

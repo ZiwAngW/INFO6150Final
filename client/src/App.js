@@ -11,7 +11,7 @@ import Category from "./pages/category/Category"
 import Register from "./pages/register/register"
 import axios from "axios";
 import FeaturedPage from "./pages/featuredPage/FeaturedPage";
-axios.defaults.baseURL = "http://localhost:8800/api";
+axios.defaults.baseURL = "http://house-hub.eastus.cloudapp.azure.com:8800/api";
 function App() {
   return (
     <BrowserRouter>

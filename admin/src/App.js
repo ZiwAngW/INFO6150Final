@@ -14,7 +14,7 @@ import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewRoom from "./pages/newRoom/NewRoom";
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:8800/api";
+axios.defaults.baseURL = "http://house-hub.eastus.cloudapp.azure.com:8800/api";
 axios.defaults.withCredentials = true;
 function App() {
   const { darkMode } = useContext(DarkModeContext);
